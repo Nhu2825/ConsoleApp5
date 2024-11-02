@@ -49,7 +49,8 @@ namespace ConsoleApp5
                     Console.WriteLine($"Ket qua la {com_die} nut");
                     Console.WriteLine("hehe thua roi");
                 }
-            else { Console.WriteLine("Nhap cho dung!!!"); }                 
+            else { Console.WriteLine("Nhap cho dung!!!"); }  
+            Console.WriteLine("===========================================================================");
         }
         /// <summary>
         /// cấp tài khoản có tiền sẵn để có thể cược và tính điểm  
@@ -85,9 +86,7 @@ namespace ConsoleApp5
             string taikhoan = Console.ReadLine();
             Console.WriteLine("Ban da tao tai khoan thanh cong. Ban muon nap bao nhieu tien vao tai khoan? <100xu - 200xu - 300xu> ____");
             int acc = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Tai khoan {taikhoan} hien co {acc} xu.");
-
-            
+            Console.WriteLine($"Tai khoan {taikhoan} hien co {acc} xu.");            
             return acc;
         }
         static void betable()
@@ -131,16 +130,21 @@ namespace ConsoleApp5
                     {
                         Console.WriteLine($"Ket qua la {com_die} nut");
                         Console.WriteLine("ok, ban thang roi!");
+                        tien+=cuoc;
                         win++;
+                        Console.WriteLine($"+ {cuoc}xu. Ban co {tien} xu");
                     }
                     else
                     {
                         Console.WriteLine($"Ket qua la {com_die} nut");
                         Console.WriteLine("hehe thua roi");
+                        tien-=cuoc;
                         loose++;
+                        Console.WriteLine($"- {cuoc} xu. Ban con {tien} xu");
                     }
                 else { Console.WriteLine("Nhap cho dung!!!"); }
                 Console.Write("Choi nua hong? <ok/ko>___"); string choice = Console.ReadLine();
+                Console.WriteLine("===========================================================================");
                 if (choice.ToLower().Equals("ko"))
                     break;
             }
@@ -156,9 +160,7 @@ namespace ConsoleApp5
             do
             {     
             Console.Write("Ban muon tao acc hay khong? <ok/ko> ___");
-            string traloi = Console.ReadLine();
-            
-
+            string traloi = Console.ReadLine();          
                 if (traloi.ToLower().Equals("ok"))
                 {
                     betable();
@@ -166,11 +168,9 @@ namespace ConsoleApp5
                 }
                 else if (traloi.ToLower().Equals("ko"))
                 {
-
                     do
                     {
                         playoneRound();
-
                         Console.Write("Choi nua hong? <ok/ko>___"); string choice = Console.ReadLine();
                         if (choice.ToLower().Equals("ko"))
                             break;
